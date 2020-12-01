@@ -18,7 +18,7 @@
     const scene = new THREE.Scene();
 
     //define a camera to look into the 3D world
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.9, 8000);
 
 
     //we are going to place our 3D meshes at the center of the world's coordinate system, 
@@ -42,7 +42,7 @@
     // some POINTS (called "geometry") that define the object
     // a MATERIAL that defines how the faces of the geometry are rendered
     const geometry1 = new THREE.BoxGeometry();
-    const material1 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const material1 = new THREE.MeshBasicMaterial({ color:0xffff00 });
 
     //you put these together by making a MESH
     const cube = new THREE.Mesh(geometry1, material1);
@@ -55,7 +55,7 @@
       // under https://threejs.org/docs/ for examples):
 
     //sphere
-    const geometry2 = new THREE.SphereGeometry(0.75, 8, 8); //radius, resX, resY
+    const geometry2 = new THREE.SphereGeometry(1, 7, 12); //radius, resX, resY
     const material2 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const sphere = new THREE.Mesh(geometry2, material2);
     sphere.position.x = -2; //move it to the left
@@ -63,21 +63,21 @@
 
     //knot
     const geometry3 = new THREE.TorusKnotGeometry(0.6, 0.1, 32, 4);
-    const material3 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+    const material3 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const knot = new THREE.Mesh(geometry3, material3);
     knot.position.x = 2; //move it to the right
     scene.add(knot);
 
     //torus
-    const geometry4 = new THREE.TorusGeometry(0.6, .1, 8, 8);
-    const material4 = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const geometry4 = new THREE.TorusGeometry(0.3, .17, 3, 8);
+    const material4 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const torus = new THREE.Mesh(geometry4, material4);
     torus.position.y = 2; //move it up
     scene.add(torus);
 
     //torus
     const geometry5 = new THREE.DodecahedronGeometry(.75);
-    const material5 = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+    const material5 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const dodecahedron = new THREE.Mesh(geometry5, material5);
     dodecahedron.position.y = -2; //move it down
     scene.add(dodecahedron);
@@ -97,10 +97,10 @@
 
       controls.update();
 
-      rotateObject(cube, 0.02, 0.01);
-      rotateObject(sphere, 0.01, 0.01);
-      rotateObject(torus, 0.01, -0.02);
-      rotateObject(knot, -0.02, 0.01);
+      rotateObject(cube, 0.8, 0.04);
+      rotateObject(sphere, 0.45, 0.3);
+      rotateObject(torus, -0.1, -0.02);
+      rotateObject(knot, -0.0800, 0.01);
       rotateObject(dodecahedron, -0.01, 0.01);
 
       renderer.render(scene, camera);
