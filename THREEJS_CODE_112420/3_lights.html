@@ -53,7 +53,7 @@
     //we can also make some other kinds of 3D objects:
 
     //sphere
-    const geometry2 = new THREE.SphereGeometry(0.75, 32, 32); //radius, resX, resY
+    const geometry2 = new THREE.SphereGeometry(1, 64, 32); //radius, resX, resY
     const material2 = new THREE.MeshPhongMaterial();
     const sphere = new THREE.Mesh(geometry2, material2);
     sphere.position.x = -2; //move it to the left
@@ -74,7 +74,7 @@
     scene.add(torus);
 
     //torus
-    const geometry5 = new THREE.DodecahedronGeometry(.75);
+    const geometry5 = new THREE.DodecahedronGeometry(3.5);
     const material5 = new THREE.MeshPhongMaterial();
     const dodecahedron = new THREE.Mesh(geometry5, material5);
     dodecahedron.position.y = -2; //move it down
@@ -91,11 +91,12 @@
     }
 
     
-    const light1 = new THREE.PointLight( 0x0000ff );
+   
+    const light1 = new THREE.PointLight( 0xFF1493 );
     light1.position.set( 0, 50, 0 );
     scene.add( light1 );
 
-    const light2 = new THREE.PointLight( 0x00ff00 );
+    const light2 = new THREE.PointLight( 0x991582);
     light2.position.set( 93, 7, 3 );
     //scene.add( light2 );
 
@@ -118,11 +119,13 @@
 
       controls.update();
 
-      rotateObject(cube, 0.02, 0.01);
-      rotateObject(sphere, 0.01, 0.01);
-      rotateObject(torus, 0.01, -0.02);
-      rotateObject(knot, -0.02, 0.01);
+      rotateObject(cube, 0.8, 0.04);
+      rotateObject(sphere, 0.45, 0.3);
+      rotateObject(torus, -0.1, -0.02);
+      rotateObject(knot, -0.0800, 6);
       rotateObject(dodecahedron, -0.01, 0.01);
+      rotateObject(cylinder, -0.02, 3, .04);
+
 
       white_pointlight.position.x += light_dx;
 

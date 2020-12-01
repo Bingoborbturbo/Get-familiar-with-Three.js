@@ -42,7 +42,7 @@
     // some POINTS (called "geometry") that define the object
     // a MATERIAL that defines how the faces of the geometry are rendered
     const geometry1 = new THREE.BoxGeometry();
-    const material1 = new THREE.MeshBasicMaterial({ color:0xffff00 });
+    const material1 = new THREE.MeshBasicMaterial({ color:0x06400 });
 
     //you put these together by making a MESH
     const cube = new THREE.Mesh(geometry1, material1);
@@ -56,9 +56,9 @@
 
     //sphere
     const geometry2 = new THREE.SphereGeometry(1, 7, 12); //radius, resX, resY
-    const material2 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+    const material2 = new THREE.MeshBasicMaterial({ color: 0xFC0CB });
     const sphere = new THREE.Mesh(geometry2, material2);
-    sphere.position.x = -2; //move it to the left
+    sphere.position.x = -3; //move it to the left
     scene.add(sphere);
 
     //knot
@@ -70,17 +70,24 @@
 
     //torus
     const geometry4 = new THREE.TorusGeometry(0.3, .17, 3, 8);
-    const material4 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+    const material4 = new THREE.MeshBasicMaterial({ color: 0xfd4c09 });
     const torus = new THREE.Mesh(geometry4, material4);
-    torus.position.y = 2; //move it up
+    torus.position.y = 3; //move it up
     scene.add(torus);
 
     //torus
     const geometry5 = new THREE.DodecahedronGeometry(.75);
-    const material5 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+    const material5 = new THREE.MeshBasicMaterial({ color: 0x374aac });
     const dodecahedron = new THREE.Mesh(geometry5, material5);
     dodecahedron.position.y = -2; //move it down
     scene.add(dodecahedron);
+
+    const geometry6 = new THREE.CylinderGeometry(.80);
+    const material6 = new THREE.MeshBasicMaterial({ color:0x6c52ee });
+    const cylinder = new THREE.Mesh(geometry6, material6);
+    cylinder.position.x = 5
+    scene.add(cylinder)
+
 
 
     //setting the mesh material to "wireframe = true" can make it easier to see the faces of the geometry 
@@ -90,6 +97,7 @@
       material3.wireframe = true;
       material4.wireframe = true;
       material5.wireframe = true;
+      material6.wireframe = true;
     }
 
     const animate = function () {
@@ -100,8 +108,9 @@
       rotateObject(cube, 0.8, 0.04);
       rotateObject(sphere, 0.45, 0.3);
       rotateObject(torus, -0.1, -0.02);
-      rotateObject(knot, -0.0800, 0.01);
+      rotateObject(knot, -0.0800, 6);
       rotateObject(dodecahedron, -0.01, 0.01);
+      rotateObject(cylinder, -0.02, 3, .04);
 
       renderer.render(scene, camera);
     };
